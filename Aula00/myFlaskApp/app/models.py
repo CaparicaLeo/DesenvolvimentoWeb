@@ -1,15 +1,26 @@
-# Exemplo de modelo simples (não está conectando a um banco de dados real)
-class Post:
-    def __init__(self, id, title, content):
-        self.id = id
-        self.title = title
-        self.content = content
-
-    def __repr__(self):
-        return f"<Post {self.id}: {self.title}>"
-
-# Lista simulando um banco de dados
+# Lista de posts simulando um banco de dados em memória
 posts_db = [
-    Post(1, "Primeiro Post", "Este é o conteúdo do primeiro post."),
-    Post(2, "Segundo Post", "Conteúdo do segundo post."),
+    {'id': 1, 'title': 'Primeiro Post', 'content': 'Este é o conteúdo do primeiro post.'},
+    {'id': 2, 'title': 'Segundo Post', 'content': 'Conteúdo do segundo post.'}
 ]
+
+# Funções para manipulação dos posts (simulando operações no banco de dados)
+def get_all_posts():
+    return posts_db
+
+def get_post_by_id(post_id):
+    return next((post for post in posts_db if post['id'] == post_id), None)
+
+def add_post(title, content):
+    post_id = len(posts_db) + 1
+    posts_db.append({'id': post_id, 'title': title, 'content': content})
+
+def update_post(post_id, title, content):
+    post = get_post_by_id(post_id)
+    if post:
+        post['title'] = title
+        post['content'] = content
+
+def delete_post(post_id):
+    global posts_db
+    posts_db = [post for post in posts_db if post['id'] != post_id]

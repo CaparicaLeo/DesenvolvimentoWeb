@@ -1,10 +1,9 @@
-# Lista de posts simulando um banco de dados em memória
+
 posts_db = [
     {'id': 1, 'title': 'Primeiro Post', 'content': 'Este é o conteúdo do primeiro post.'},
     {'id': 2, 'title': 'Segundo Post', 'content': 'Conteúdo do segundo post.'}
 ]
 
-# Funções para manipulação dos posts (simulando operações no banco de dados)
 def get_all_posts():
     return posts_db
 

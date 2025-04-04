@@ -7,11 +7,11 @@ export default class Venda{
     private _cliente:Cliente;
     private _produtos:Produto[];
 
-    constructor(codigo:number, data:number, cliente:Cliente, produto:Produto){
+    constructor(codigo:number, data:number, cliente:Cliente, produto:Produto[]){
         this._codigo=codigo;
         this._data=data;
         this._cliente=cliente;
-        this._produtos=[produto];
+        this._produtos=produto;
     }
     get codigo(): number {
         return this._codigo;
@@ -24,5 +24,8 @@ export default class Venda{
     }
     get produtos(): Produto[] {
         return this._produtos;
+    }
+    calcularTotal(): number {
+        return this.produtos.reduce((total, produto) => total + produto.valor, 0);
     }
 }

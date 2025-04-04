@@ -9,25 +9,13 @@ export default class Cliente {
   private _endereco: Endereco;
   private _telefones: Telefone[];
 
-  constructor(
-    nome: string,
-    cpf: number,
-    data_nascimento: number,
-    sexo: string,
-    rua: string,
-    numeroEndereco: number,
-    cidade: string,
-    estado: string,
-    ddd: string,
-    numeroTelefone: number,
-    tipo: string
-  ) {
-    this._nome = nome;
-    this._cpf = cpf;
-    this._data_nascimento = data_nascimento;
-    this._sexo = sexo;
-    this._endereco = new Endereco(rua, numeroEndereco, cidade, estado);
-    this._telefones = [new Telefone(ddd, numeroTelefone, tipo)];
+  constructor(nome:string,cpf:number,data:number,sexo:string,endereco:Endereco,telefone:Telefone[]){
+    this._nome=nome;
+    this._cpf=cpf;
+    this._data_nascimento=data;
+    this._sexo=sexo;
+    this._endereco=endereco;
+    this._telefones=telefone;
   }
 
   get nome(): string {
